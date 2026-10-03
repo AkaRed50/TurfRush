@@ -1,0 +1,226 @@
+{
+    "common": {
+        "room": "Room",
+        "player": "Player",
+        "defaultPlayerName": "Gambler",
+        "connecting": "Connecting...",
+        "ready": "Ready",
+        "close": "CLOSE",
+        "kick": "KICK",
+        "copyLink": "📋 Copy Link",
+        "linkCopied": "✓ Copied!",
+        "invitationLinkPrompt": "Invitation Link:",
+        "alertConnError": "Connection error. Please check the room code.",
+        "alertKicked": "You have been kicked from the room.",
+        "alertRoomFull": "The room is full. You cannot join this match."
+    },
+    "portal": {
+        "title": "TURF RUSH",
+        "subtitle": "Based on the game: Ready Set Bet",
+        "hostBtn": "HOST A GAME",
+        "divider": "OR JOIN AS PLAYER",
+        "roomCodeLabel": "Room Code:",
+        "roomCodePlaceholder": "X9B2K7",
+        "playerNameLabel": "Player Name:",
+        "playerNamePlaceholder": "Nickname",
+        "joinBtn": "JOIN ROOM"
+    },
+    "host": {
+        "title": "TURF RUSH",
+        "startRace": "Start Race",
+        "pause": "Pause",
+        "rollDice": "Roll Dice",
+        "reset": "Reset",
+        "betsOpen": "BETS OPEN",
+        "betsClosed": "NO MORE BETS! BETS CLOSED",
+        "lastRoll": "LAST ROLL",
+        "players": "PLAYERS",
+        "managePlayersTitle": "Manage Players",
+        "turfChronicle": "TURF CHRONICLE",
+        "viewTrack": "🏁 VIEW TRACK",
+        "viewResults": "🏆 VIEW RESULTS",
+        "horseArrivals": "🏁 HORSE ARRIVALS",
+        "standingsAndPayouts": "💰 STANDINGS & PAYOUTS",
+        "winner": "WINNER",
+        "tie": "Tie",
+        "tilesBehind": "-{diff} tiles",
+        "tileLabel": "Tile: {pos}",
+        "noPlayers": "No active players registered",
+        "totalPosition": "Total: <b>{pos}</b>",
+        "speed": {
+            "slow": "Slow",
+            "normal": "Normal",
+            "fast": "Fast",
+            "frenetic": "Frenetic"
+        },
+        "lobby": {
+            "title": "Turf Rush",
+            "subtitle": "Room Setup",
+            "roomCode": "Room Code:",
+            "hostingMode": "Hosting Mode:",
+            "modeOnline": "Online (GitHub Pages)",
+            "modeLocal": "Local (Wi-Fi / LAN)",
+            "hostIp": "Host IP / Domain:",
+            "maxPlayers": "Max Players:",
+            "playersOption": "{count} Players",
+            "playersOptionOfficial": "{count} Players",
+            "initialMoney": "Initial Cash:",
+            "allowDebt": "Allow Debt:",
+            "debtNo": "No",
+            "debtYes": "Yes",
+            "gameMode": "Interface:",
+            "modeWestern": "Classic",
+            "modeUma": "Uma Musume",
+            "language": "Language:",
+            "scanQr": "SCAN WITH MOBILE",
+            "connectedPlayers": "CONNECTED PLAYERS:",
+            "openRoomBtn": "START GAME"
+        },
+        "umaSetup": {
+            "title": "UMA LINEUP SETUP",
+            "subtitle": "Assign a runner per lane or roll the dice for a random choice",
+            "rollAll": "🎲 ROLL ALL",
+            "rollAllTitle": "Roll all lanes random",
+            "rollLaneTitle": "Roll random Uma",
+            "backLobby": "BACK TO LOBBY",
+            "confirmStart": "CONFIRM & START RACE"
+        },
+        "results": {
+            "roundCompleted": "RACE {round} OF 5 COMPLETED",
+            "tournamentFinished": "FINAL CHAMPIONSHIP STANDINGS",
+            "nextRaceBtn": "NEXT RACE (ROUND {nextRound})",
+            "newTournamentBtn": "NEW TOURNAMENT",
+            "podiumGold": "1ST PLACE 🥇",
+            "podiumSilver": "2ND PLACE 🥈",
+            "podiumBronze": "3RD PLACE 🥉"
+        },
+        "log": {
+            "streakBadge": "STREAK! #{label} +{steps}",
+            "connected": "+ Connected: {name}",
+            "disconnected": "- Disconnected: {name}",
+            "betPlaced": "{name} bets ${amount} on #{label} ({category})",
+            "sideBetPlaced": "{name} bets ${amount} on Side: {side}",
+            "propBetPlaced": "{name} bets ${amount} on Prop: {title}",
+            "exoticBetPlaced": "{name} bets ${amount} on Exotic: {title}",
+            "racePrepared": "--- RACE {round} PREPARED ---",
+            "payoutError": "ERROR calculating payouts."
+        },
+        "modifiers": {
+            "defaultTitle": "Normal",
+            "defaultDesc": "No special modifiers.",
+            "roundTitle": "Round {round}"
+        }
+    },
+    "client": {
+        "modalTitle": "TURF RUSH",
+        "modalSubtitle": "Connect to Main Screen",
+        "codePlaceholder": "6 DIGITS (e.g. X9B2K7)",
+        "namePlaceholder": "Your Nickname",
+        "connectBtn": "CONNECT TO ROOM",
+        "waitingRaceTitle": "WAITING FOR RACE...",
+        "waitingRaceSubtitle": "Look at the Host screen",
+        "waitingStartTitle": "WAITING FOR START",
+        "betsOpenFirstMove": "Bets will open on the first move",
+        "betsClosedTitle": "NO MORE BETS!",
+        "betsClosedSubtitle": "Bets are closed. Watch the finish line!",
+        "raceFinishedTitle": "RACE FINISHED!",
+        "raceFinishedSubtitle": "Calculating payouts...",
+        "checkHost": "Check Host screen.",
+        "noBetsPlaced": "No bets placed this round",
+        "noPlayerData": "No player data available",
+        "youTag": "(You)",
+        "breakdownPending": "Bet breakdown will be updated at the end of the round.",
+        "profit": "+ ${amount} PROFIT",
+        "loss": "- ${amount} LOSS",
+        "balance": "Current balance: ${amount}",
+        "propBetsHeader": "PROP BETS (1 CHIP PER CARD)",
+        "topBtn": "🏆 TOP",
+        "standingsTitle": "🏆 STANDINGS",
+        "payoutModal": {
+            "title": "💰 SUMMARY & PAYOUTS",
+            "breakdown": "Your Bets Breakdown:",
+            "leaderboard": "Player Cash Standings:",
+            "closeBtn": "GOT IT"
+        },
+        "headers": {
+            "show": "SHOW",
+            "place": "PLACE",
+            "win": "WIN",
+            "horse": "HORSE"
+        },
+        "sideBets": {
+            "blueWins": "Blue wins",
+            "orangeWins": "Orange wins",
+            "redWins": "Red wins",
+            "sevenFails": "#7 finishes 5th or worse"
+        },
+        "bottomCards": {
+            "exotic": "Exotic Finish ★",
+            "race1": "R1",
+            "race2": "R2",
+            "race3": "R3",
+            "race4": "R4",
+            "race5": "R5",
+            "vip": "VIP"
+        },
+        "cardsModal": {
+            "exoticTitle": "Exotic Finish Bets",
+            "exoticDesc": "Tap a slot with an active chip to bet (1 chip per player on each card)",
+            "noExotic": "No active exotic cards.",
+            "vipTitle": "VIP Cards",
+            "vipDesc": "This feature is will be available in upcoming updates."
+        }
+    },
+    "payouts": {
+        "winBet": "Win Bet: #{label}",
+        "placeBet": "Place Bet: #{label}",
+        "showBet": "Show Bet: #{label}",
+        "sideBet": "Side Bet: {side}",
+        "propBet": "Prop: {title}",
+        "exoticBet": "Exotic: {title}",
+        "penalty": "Penalty"
+    },
+    "narrative": {
+        "takeLead": [
+            "#{label} takes the lead from #{prevLeader}!",
+            "Lead change! #{label} overtakes #{prevLeader} and leads the pack.",
+            "#{label} surges ahead of #{prevLeader}!"
+        ],
+        "overtake": [
+            "#{label} overtakes #{overtaken}!",
+            "#{label} moves past #{overtaken} into a better spot!",
+            "#{label} leaves #{overtaken} behind!"
+        ],
+        "pullAway": [
+            "#{label} breaks away with a {gap}-tile lead over #{chaser}!",
+            "#{label} extends the lead to {gap} tiles against #{chaser}!"
+        ],
+        "neckAndNeck": [
+            "#{label} and #{rival} are neck and neck at tile {pos}!",
+            "Tied! #{label} catches up with #{rival} on tile {pos}."
+        ],
+        "lastComeback": [
+            "#{label} breaks away from last place and starts closing the gap!"
+        ],
+        "streak": [
+            "Streak! #{label} rolls again and gains +{steps} bonus tiles.",
+            "Back-to-back roll for #{label}! Adding +{steps} bonus movement."
+        ],
+        "standard": [
+            "#{label} advances {steps} tile(s).",
+            "Dice hit for #{label}: moves {steps} position(s)."
+        ],
+        "redLine": [
+            "Watch out! #{label} crosses the red line ({count}/3).",
+            "#{label} hits the red line section ({count}/3)!"
+        ],
+        "betsClosed": [
+            "Third runner crossed the red line! Bets are officially closed.",
+            "Time is up! No more bets accepted."
+        ],
+        "victory": [
+            "#{label} crosses the finish line and wins the race!",
+            "Victory for #{label}! Taking first place!"
+        ]
+    }
+}

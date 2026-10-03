@@ -1,0 +1,172 @@
+{
+    "track": {
+        "length": 15,
+        "redLine": 10
+    },
+    "horses": [
+        { "id": 0, "label": "2/3", "color": "blue", "bonus": 3 },
+        { "id": 1, "label": "4", "color": "blue", "bonus": 3 },
+        { "id": 2, "label": "5", "color": "orange", "bonus": 2 },
+        { "id": 3, "label": "6", "color": "red", "bonus": 1 },
+        { "id": 4, "label": "7", "color": "black", "bonus": 0 },
+        { "id": 5, "label": "8", "color": "red", "bonus": 1 },
+        { "id": 6, "label": "9", "color": "orange", "bonus": 2 },
+        { "id": 7, "label": "10", "color": "blue", "bonus": 3 },
+        { "id": 8, "label": "11/12", "color": "blue", "bonus": 3 }
+    ],
+    "mainBets": [
+        {
+            "horseId": 0,
+            "show": [{ "m": 4, "p": 3 }, { "m": 4, "p": 3 }],
+            "place": [{ "m": 5, "p": 3 }, { "m": 5, "p": 3 }],
+            "win": [{ "m": 7, "p": 2 }, { "m": 8, "p": 2 }, { "m": 9, "p": 2 }]
+        },
+        {
+            "horseId": 1,
+            "show": [{ "m": 3, "p": 1 }, { "m": 3, "p": 1 }],
+            "place": [{ "m": 4, "p": 1 }, { "m": 4, "p": 1 }],
+            "win": [{ "m": 5, "p": 1 }, { "m": 6, "p": 1 }, { "m": 7, "p": 1 }]
+        },
+        {
+            "horseId": 2,
+            "show": [{ "m": 2, "p": 3 }, { "m": 2, "p": 3 }],
+            "place": [{ "m": 2, "p": 2 }, { "m": 3, "p": 2 }],
+            "win": [{ "m": 4, "p": 2 }, { "m": 4, "p": 2 }, { "m": 5, "p": 2 }]
+        },
+        {
+            "horseId": 3,
+            "show": [{ "m": 1, "p": 2 }, { "m": 1, "p": 2 }],
+            "place": [{ "m": 2, "p": 5 }, { "m": 2, "p": 4 }],
+            "win": [{ "m": 3, "p": 2 }, { "m": 3, "p": 1 }, { "m": 3, "p": 1 }]
+        },
+        {
+            "horseId": 4,
+            "show": [{ "m": 1, "p": 3 }, { "m": 1, "p": 1 }],
+            "place": [{ "m": 2, "p": 6 }, { "m": 2, "p": 5 }],
+            "win": [{ "m": 3, "p": 3 }, { "m": 3, "p": 3 }, { "m": 3, "p": 2 }]
+        },
+        {
+            "horseId": 5,
+            "show": [{ "m": 1, "p": 2 }, { "m": 1, "p": 2 }],
+            "place": [{ "m": 2, "p": 5 }, { "m": 2, "p": 4 }],
+            "win": [{ "m": 3, "p": 2 }, { "m": 3, "p": 1 }, { "m": 3, "p": 1 }]
+        },
+        {
+            "horseId": 6,
+            "show": [{ "m": 2, "p": 3 }, { "m": 2, "p": 3 }],
+            "place": [{ "m": 2, "p": 2 }, { "m": 3, "p": 2 }],
+            "win": [{ "m": 4, "p": 2 }, { "m": 4, "p": 2 }, { "m": 5, "p": 2 }]
+        },
+        {
+            "horseId": 7,
+            "show": [{ "m": 3, "p": 1 }, { "m": 3, "p": 1 }],
+            "place": [{ "m": 4, "p": 1 }, { "m": 4, "p": 1 }],
+            "win": [{ "m": 5, "p": 1 }, { "m": 6, "p": 1 }, { "m": 7, "p": 1 }]
+        },
+        {
+            "horseId": 8,
+            "show": [{ "m": 4, "p": 4 }, { "m": 4, "p": 3 }],
+            "place": [{ "m": 5, "p": 4 }, { "m": 5, "p": 3 }],
+            "win": [{ "m": 7, "p": 2 }, { "m": 8, "p": 2 }, { "m": 9, "p": 2 }]
+        }
+    ],
+    "sideBets": {
+        "blue": { "m": 5, "p": 1 },
+        "orange": { "m": 3, "p": 1 },
+        "red": { "m": 2, "p": 1 },
+        "black": { "m": 4, "p": 0 }
+    },
+    /*REVISAR ESTO. DA ERROR EL COMENTARIO PERO SINO NO LO REVISAS, CABRON*/
+    "exoticDeck": [
+        {
+            "id": "exotic_blowout",
+            "title": "Blow Out",
+            "title_es": "Victoria Aplastante",
+            "desc": "Winner finishes +2 spaces above 2nd place.",
+            "desc_es": "El caballo ganador saca +2 casillas de ventaja al 2º puesto.",
+            "slots": [
+                { "m": 4, "p": 2 },
+                { "m": 3, "p": 2 },
+                { "m": 2, "p": 1 }
+            ]
+        },
+        {
+            "id": "exotic_tightrace",
+            "title": "Tight Race",
+            "title_es": "Carrera Apretada",
+            "desc": "All 9 horses advance at least 6 spaces.",
+            "desc_es": "Los 9 caballos avanzan al menos 6 casillas.",
+            "slots": [
+                { "m": 5, "p": 3 },
+                { "m": 4, "p": 2 },
+                { "m": 3, "p": 1 }
+            ]
+        },
+        {
+            "id": "exotic_photofinish",
+            "title": "Photo Finish",
+            "title_es": "Foto Finish",
+            "desc": "There is a tie for 1st, 2nd, or 3rd place.",
+            "desc_es": "Hay un empate en 1er, 2do o 3er puesto).",
+            "slots": [
+                { "m": 4, "p": 2 },
+                { "m": 3, "p": 2 },
+                { "m": 2, "p": 1 }
+            ]
+        },
+        {
+            "id": "exotic_longest_odds",
+            "title": "Longshot Glory",
+            "title_es": "Gloria Sorpresa",
+            "desc": "A Blue horse wins.",
+            "desc_es": "Gana un caballo azul.",
+            "slots": [
+                { "m": 6, "p": 3 },
+                { "m": 5, "p": 2 },
+                { "m": 4, "p": 2 }
+            ]
+        },
+        {
+            "id": "exotic_favorite_fall",
+            "title": "Favorite's Fall",
+            "title_es": "Caída del Favorito",
+            "desc": "Horse #7 finishes in 6th place or worse.",
+            "desc_es": "El caballo #7 termina en 6ª posición o peor.",
+            "slots": [
+                { "m": 4, "p": 2 },
+                { "m": 3, "p": 1 },
+                { "m": 2, "p": 1 }
+            ]
+        }
+    ],
+    "propDeck": [
+        { "id": "p01", "type": "H_VS_H", "hA": 0, "hB": 3, "m": 3, "p": 2, "title": "#2/3 > #6", "title_es": "#2/3 > #6" },
+        { "id": "p02", "type": "H_VS_H", "hA": 0, "hB": 5, "m": 3, "p": 2, "title": "#2/3 > #8", "title_es": "#2/3 > #8" },
+        { "id": "p03", "type": "H_VS_H", "hA": 1, "hB": 2, "m": 2, "p": 2, "title": "#4 > #5", "title_es": "#4 > #5" },
+        { "id": "p04", "type": "H_VS_H", "hA": 1, "hB": 6, "m": 2, "p": 2, "title": "#4 > #9", "title_es": "#4 > #9" },
+        { "id": "p05", "type": "H_VS_H", "hA": 2, "hB": 4, "m": 3, "p": 2, "title": "#5 > #7", "title_es": "#5 > #7" },
+        { "id": "p06", "type": "H_VS_H", "hA": 6, "hB": 4, "m": 3, "p": 2, "title": "#9 > #7", "title_es": "#9 > #7" },
+        { "id": "p07", "type": "H_VS_H", "hA": 3, "hB": 5, "m": 2, "p": 2, "title": "#6 > #8", "title_es": "#6 > #8" },
+        { "id": "p08", "type": "H_VS_H", "hA": 5, "hB": 3, "m": 2, "p": 2, "title": "#8 > #6", "title_es": "#8 > #6" },
+        { "id": "p09", "type": "H_VS_H", "hA": 7, "hB": 2, "m": 2, "p": 2, "title": "#10 > #5", "title_es": "#10 > #5" },
+        { "id": "p10", "type": "H_VS_H", "hA": 7, "hB": 6, "m": 2, "p": 2, "title": "#10 > #9", "title_es": "#10 > #9" },
+        { "id": "p11", "type": "H_VS_H", "hA": 8, "hB": 3, "m": 3, "p": 2, "title": "#11/12 > #6", "title_es": "#11/12 > #6" },
+        { "id": "p12", "type": "H_VS_H", "hA": 8, "hB": 5, "m": 3, "p": 2, "title": "#11/12 > #8", "title_es": "#11/12 > #8" },
+        { "id": "p13", "type": "H_VS_H", "hA": 4, "hB": 3, "m": 2, "p": 3, "title": "#7 > #6", "title_es": "#7 > #6" },
+        { "id": "p14", "type": "H_VS_H", "hA": 4, "hB": 5, "m": 2, "p": 3, "title": "#7 > #8", "title_es": "#7 > #8" },
+        { "id": "p15", "type": "H_VS_H", "hA": 2, "hB": 6, "m": 2, "p": 2, "title": "#5 > #9", "title_es": "#5 > #9" },
+        { "id": "p16", "type": "H_VS_H", "hA": 6, "hB": 2, "m": 2, "p": 2, "title": "#9 > #5", "title_es": "#9 > #5" },
+        { "id": "p17", "type": "H_VS_H", "hA": 1, "hB": 7, "m": 2, "p": 2, "title": "#4 > #10", "title_es": "#4 > #10" },
+        { "id": "p18", "type": "H_VS_H", "hA": 7, "hB": 1, "m": 2, "p": 2, "title": "#10 > #4", "title_es": "#10 > #4" },
+        { "id": "p19", "type": "H_VS_H", "hA": 0, "hB": 8, "m": 2, "p": 2, "title": "#2/3 > #11/12", "title_es": "#2/3 > #11/12" },
+        { "id": "p20", "type": "H_VS_H", "hA": 8, "hB": 0, "m": 2, "p": 2, "title": "#11/12 > #2/3", "title_es": "#11/12 > #2/3" },
+        { "id": "p21", "type": "H_VS_COLOR", "hA": 4, "colorB": "blue", "m": 4, "p": 2, "title": "#7 > Blue", "title_es": "#7 > Azules" },
+        { "id": "p22", "type": "H_VS_COLOR", "hA": 3, "colorB": "blue", "m": 3, "p": 2, "title": "#6 > Blue", "title_es": "#6 > Azules" },
+        { "id": "p23", "type": "H_VS_COLOR", "hA": 5, "colorB": "blue", "m": 3, "p": 2, "title": "#8 > Blue", "title_es": "#8 > Azules" },
+        { "id": "p24", "type": "H_VS_COLOR", "hA": 2, "colorB": "red", "m": 3, "p": 2, "title": "#5 > Red", "title_es": "#5 > Rojos" },
+        { "id": "p25", "type": "H_VS_COLOR", "hA": 6, "colorB": "red", "m": 3, "p": 2, "title": "#9 > Red", "title_es": "#9 > Rojos" },
+        { "id": "p26", "type": "H_VS_COLOR", "hA": 1, "colorB": "orange", "m": 3, "p": 2, "title": "#4 > Orange", "title_es": "#4 > Naranjas" },
+        { "id": "p27", "type": "H_VS_COLOR", "hA": 7, "colorB": "orange", "m": 3, "p": 2, "title": "#10 > Orange", "title_es": "#10 > Naranjas" },
+        { "id": "p28", "type": "H_VS_COLOR", "hA": 0, "colorB": "orange", "m": 4, "p": 2, "title": "#2/3 > Orange", "title_es": "#2/3 > Naranjas" }
+    ]
+}

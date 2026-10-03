@@ -1,0 +1,203 @@
+<!-- Host board view for race and room management -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Turf Rush - Host Board</title>
+        <link rel="stylesheet" href="assets/css/host.css">
+        <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    </head>
+
+    <body class="theme-western">
+        <div id="lobbyView" class="fullscreen-view">
+            <div class="lobby-content-wrapper">
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <h2 id="lobbyTitleTxt" style="font-size: 2.2rem; color: var(--accent-gold); letter-spacing: 2px; margin-bottom: 8px;">Turf Rush</h2>
+                    <p id="lobbySubtitleTxt" style="color: var(--text-muted); font-size: 1.1rem;">Room Setup</p>
+                </div>
+                
+                <div class="lobby-content">
+                    <!-- Configuration form options -->
+                    <div class="lobby-config-side">
+                        <div class="form-group">
+                            <label for="roomCodeDisplay" id="lblRoomCode">Room Code:</label>
+                            <input type="text" id="roomCodeDisplay" class="config-input" readonly style="text-align: center; font-weight: 900; font-size: 1.3rem; letter-spacing: 4px; color: #fff;">
+                        </div>
+                        <!-- Hosting mode selector -->
+                        <div class="form-group">
+                            <label for="configHostingMode" id="lblHostingMode">Hosting Mode:</label>
+                            <select id="configHostingMode" class="config-select">
+                                <option value="online" selected id="optHostOnline">Online (GitHub Pages)</option>
+                                <option value="local" id="optHostLocal">Local (Wi-Fi / LAN)</option>
+                            </select>
+                        </div>
+                        <!-- Local IP input field -->
+                        <div class="form-group" id="groupHostIp" style="display: none;">
+                            <label for="configHostIp" id="lblHostIp">Host IP / Domain:</label>
+                            <input type="text" id="configHostIp" class="config-input" placeholder="192.168.1.58:8080" style="text-align: center;">
+                        </div>
+                        <div class="form-group">
+                            <label for="configMaxPlayers" id="lblMaxPlayers">Max Players:</label>
+                            <select id="configMaxPlayers" class="config-select">
+                                <option value="2" id="optPlayers2">2 Players</option>
+                                <option value="4" id="optPlayers4">4 Players</option>
+                                <option value="6" id="optPlayers6">6 Players</option>
+                                <option value="8" selected id="optPlayers8">8 Players</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="configInitialMoney" id="lblInitialMoney">Initial Cash:</label>
+                            <input type="number" id="configInitialMoney" class="config-input" value="0" min="0" max="500">
+                        </div>
+                        <div class="form-group">
+                            <label for="configDebtMode" id="lblAllowDebt">Allow Debt:</label>
+                            <select id="configDebtMode" class="config-select">
+                                <option value="false" selected id="optDebtNo">No</option>
+                                <option value="true" id="optDebtYes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="configTheme" id="lblGameMode">Interface:</label>
+                            <select id="configTheme" class="config-select">
+                                <option value="western" selected id="optThemeWestern">Classic</option>
+                                <option value="uma" id="optThemeUma">Uma Musume</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="configLang" id="lblLanguage">Language:</label>
+                            <select id="configLang" class="config-select">
+                                <option value="en" selected>English</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Connection QR code and joined players -->
+                    <div class="lobby-p2p-side">
+                        <div id="scanQrLabel" style="font-size: 1rem; font-weight: 800; color: var(--accent-gold); text-transform: uppercase;">SCAN WITH MOBILE</div>
+                        <div id="qrcode"></div>
+                        <button id="btnCopyLobbyLink" class="btn-copy-link" style="margin-bottom: 12px;">📋 Copy Link</button>
+
+                        <div class="players-joined-card">
+                            <div style="font-size: 0.9rem; font-weight: 800; color: var(--accent-gold); display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span id="lblConnectedPlayers">CONNECTED PLAYERS:</span>
+                                <span id="playerCountLabel">0 / 8</span>
+                            </div>
+                            <ul class="players-list" id="playersListContainer" style="max-height: 180px;"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btnStartLobby" class="primary" style="width: 100%; margin-top: 32px; padding: 18px; font-size: 1.2rem;">START GAME</button>
+            </div>
+        </div>
+
+        <!-- Uma Musume DLC modal -->
+        <div id="umaSetupModal" class="fullscreen-view hidden" style="background: rgba(10,5,2,0.96); z-index: 1500;">
+            <div class="uma-setup-card">
+                <div class="uma-setup-header">
+                    <div>
+                        <h2 id="umaSetupTitle" style="color: var(--accent-bright); font-size: 1.8rem; margin: 0; letter-spacing: 1px;">UMA LINEUP SETUP</h2>
+                        <p id="umaSetupSubtitle" style="color: var(--text-muted); font-size: 0.85rem; margin: 4px 0 0 0;">Assign a runner per lane or roll the dice for a random choice</p>
+                    </div>
+                    <button id="btnUmaRandomizeAll" class="btn-uma-dice-all" title="Roll all lanes random">🎲 ROLL ALL</button>
+                </div>
+
+                <div id="umaLanesList" class="uma-lanes-scroll-container"></div>
+
+                <div class="uma-setup-footer">
+                    <button id="btnUmaCancelSetup" style="padding: 12px 24px; font-size: 1rem;">BACK TO LOBBY</button>
+                    <button id="btnUmaConfirmSetup" class="primary" style="padding: 12px 32px; font-size: 1.1rem; font-weight: 900;">CONFIRM & START RACE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main race view -->
+        <div id="gameView" class="fullscreen-view hidden" style="flex-direction: column; justify-content: flex-start;">
+            <header>
+                <div class="title-area" style="display: flex; align-items: center; gap: 10px;">
+                    <span id="headerRoomCode" style="font-size: 0.95rem; color: var(--accent-gold); font-weight: 800; letter-spacing: 1px;"></span>
+                    <button id="btnCopyInGameLink" class="btn-copy-link" style="padding: 4px 10px; font-size: 0.78rem;">📋 Copy Link</button>
+                </div>
+                
+                <div class="controls-bar">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
+                        <div class="status-alert closed" id="bettingStatusBadge" style="margin: 0; padding: 6px 14px; font-size: 0.85rem;">WAITING FOR START</div>
+                        <button id="btnLangToggle" class="lang-switch-btn" title="Language: EN">🌐 EN</button>
+
+                        <div class="speed-group" id="speedGroup">
+                            <button class="speed-btn speed-btn-icon" data-speed="1500" id="optSpeedSlow" title="Slow">🐢</button>
+                            <button class="speed-btn speed-btn-icon active" data-speed="1000" id="optSpeedNormal" title="Normal">🚶</button>
+                            <button class="speed-btn speed-btn-icon" data-speed="600" id="optSpeedFast" title="Fast">🐎</button>
+                            <button class="speed-btn speed-btn-icon" data-speed="350" id="optSpeedFrenetic" title="Frenetic">⚡</button>
+                        </div>
+
+                        <button id="btnPlayersList" style="background: #1e3a8a; border-color: #60a5fa; color: white;">PLAYERS</button>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="track-container" id="trackContainer"></div>
+
+                <!-- Race dice rolling sidebar -->
+                <aside class="side-panel">
+                    <div class="dice-display-box">
+                        <div id="lblLastRoll" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">LAST ROLL</div>
+                        <div class="dice-row">
+                            <div class="die-face" id="die1">-</div>
+                            <div class="die-face" id="die2">-</div>
+                        </div>
+                        <div class="dice-sum" id="diceSum">-</div>
+                        <div id="streakBadge" style="font-size: 0.8rem; color: #f59e0b; font-weight: 700; height: 1.2rem;"></div>
+
+                        <div class="dice-controls-row">
+                            <button id="btnStart" class="btn-dice-ctrl primary-ctrl" title="Start Race">▶</button>
+                            <button id="btnPause" class="btn-dice-ctrl" title="Pause">⏸</button>
+                            <button id="btnStep" class="btn-dice-ctrl" title="Roll Dice">🎲</button>
+                            <button id="btnReset" class="btn-dice-ctrl" title="Reset">🔄</button>
+                        </div>
+                    </div>
+
+                    <div id="lblTurfChronicle" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; margin-top: 8px;">TURF CHRONICLE</div>
+                    <div class="announcements-box" id="announcementsLog" style="flex: 1;"></div>
+                </aside>
+            </main>
+        </div>
+
+        <!-- Race results and leaderboard view -->
+        <div id="resultsView" class="fullscreen-view hidden">
+            <div id="resultsContent" class="results-content-wrapper"></div>
+        </div>
+
+        <!-- In-game player management modal -->
+        <div id="activePlayersModal" class="fullscreen-view hidden" style="background: rgba(10,5,2,0.95); z-index: 2000;">
+            <div class="results-content-wrapper" style="width: 500px; height: auto; padding: 32px;">
+                <h2 id="modalManagePlayersTitle" style="color: var(--accent-gold); margin-bottom: 20px; text-align: center;">Manage Players</h2>
+                <ul class="players-list" id="activeGamePlayersList" style="max-height: 50vh; margin-bottom: 24px;"></ul>
+                <button id="btnClosePlayersModal" class="primary" style="width: 100%; padding: 14px;">CLOSE</button>
+            </div>
+        </div>
+
+        <button id="btnResumeResults" class="primary" style="display: none; position: fixed; bottom: 32px; right: 32px; z-index: 999; padding: 16px 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.8); font-size: 1.2rem; font-weight: 900; border-radius: 8px;">🏆 VIEW RESULTS</button>
+
+        <!-- Dependencies scripts -->
+        <script src="lang/i18n.js"></script>
+        <script src="assets/js/ui/i18n_ui.js"></script>
+        <script src="assets/js/audio/sfx.js"></script>
+        <script src="assets/js/core/dice.js"></script>
+        <script src="assets/js/core/engine.js"></script>
+        <script src="assets/js/core/payouts.js"></script>
+        <script src="assets/js/net/protocol.js"></script>
+        <script src="assets/js/net/p2p.js"></script>
+        <script src="assets/js/dlc/uma_manager.js"></script>
+        <script src="assets/js/host/narrator.js"></script>
+        <script src="assets/js/host/track_view.js"></script>
+        <script src="assets/js/host/lobby.js"></script>
+        <script src="assets/js/host/bets.js"></script>
+        <script src="assets/js/host/results_view.js"></script>
+        <script src="assets/js/ui/host_ui.js"></script>
+    </body>
+</html>

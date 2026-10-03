@@ -1,0 +1,144 @@
+<!-- Mobile controller interface for players -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title>Turf Rush - Mobile Controller</title>
+        <link rel="stylesheet" href="assets/css/client.css?v=5.2.0">
+        <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    </head>
+
+    <body class="theme-western">
+        <!-- Room connection modal -->
+        <div id="joinModal" class="client-overlay">
+            <div class="client-modal-card">
+                <h2 id="modalTitleTxt" style="color: var(--accent-gold); font-size: 1.6rem; letter-spacing: 1px;">TURF RUSH</h2>
+                <p id="modalSubtitleTxt" style="color: var(--text-muted); font-size: 0.85rem;">Connect to Main Screen</p>
+                <input type="text" id="clientRoomCode" class="client-input" placeholder="6 DIGITS (e.g. X9B2K7)" maxlength="6" style="letter-spacing: 3px; text-transform: uppercase;">
+                <input type="text" id="clientPlayerName" class="client-input" placeholder="Your Nickname" maxlength="12">
+                <button id="btnConnect" class="btn-primary">CONNECT TO ROOM</button>
+            </div>
+        </div>
+
+        <!-- Race status overlay banner -->
+        <div id="statusOverlay" class="client-overlay hidden">
+            <div class="client-modal-card" style="max-width: 360px; width: 90%;">
+                <h2 id="overlayTitle" style="color: #ef4444; font-size: 1.4rem;">WAITING FOR START</h2>
+                <p id="overlaySubtitle" style="color: var(--text-muted); font-size: 0.85rem;">Bets will open on the first move</p>
+            </div>
+        </div>
+
+        <!-- Round payouts modal -->
+        <div id="roundPayoutModal" class="client-overlay hidden" style="z-index: 2500;">
+            <div class="client-modal-card" style="max-width: 440px; width: 92%; padding: 20px; max-height: 85vh; display: flex; flex-direction: column;">
+                <h2 id="payoutModalTitle" style="color: var(--accent-bright); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">💰 RESUMEN Y PAGOS</h2>
+                
+                <div id="personalPayoutSection">
+                    <div id="payoutModalDelta" style="font-size: 2rem; font-weight: 900; margin: 4px 0; text-align: center;">+$0</div>
+                    <div id="payoutModalBalance" style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px; font-weight: 700; text-align: center;">Balance: $0</div>
+
+                    <div id="lblPayoutBreakdown" style="font-size: 0.75rem; font-weight: 900; color: var(--accent-bright); text-align: left; margin-bottom: 4px; text-transform: uppercase;">
+                        Your Bets Breakdown:
+                    </div>
+                    <div id="payoutBreakdownContainer" style="overflow-y: auto; background: rgba(0,0,0,0.4); border: 1.5px solid var(--border-main); border-radius: 6px; padding: 8px; margin-bottom: 12px; font-size: 0.85rem; max-height: 120px;"></div>
+                </div>
+
+                <div id="lblPayoutLeaderboard" style="font-size: 0.75rem; font-weight: 900; color: var(--accent-gold); text-align: left; margin-bottom: 6px; text-transform: uppercase;">
+                    Player Cash Standings:
+                </div>
+                <div id="payoutLeaderboardContainer" style="flex: 1; overflow-y: auto; background: rgba(0,0,0,0.4); border: 1.5px solid var(--border-main); border-radius: 6px; padding: 8px; margin-bottom: 14px; font-size: 0.85rem; max-height: 200px;"></div>
+
+                <button id="btnPayoutModalClose" class="primary" style="width: 100%; padding: 12px; font-size: 1.05rem; font-weight: 900; cursor: pointer;">
+                    GOT IT
+                </button>
+            </div>
+        </div>
+
+        <!-- Exotic betting modal -->
+        <div id="interactiveBetModal" class="client-overlay hidden">
+            <div class="interactive-modal-card">
+                <button id="btnInteractiveClose" class="modal-close-icon">&times;</button>
+                <h2 id="interactiveModalTitle" style="color: var(--accent-gold); font-size: 1.3rem; margin-bottom: 4px;">Exotic Finish Bets</h2>
+                <p id="interactiveModalSub" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Tap a slot with an active chip to bet (1 chip per player on each card)</p>
+                <div id="interactiveDeckContainer" class="cards-deck-list"></div>
+            </div>
+        </div>
+
+        <!-- Player info and status header -->
+        <header class="client-header">
+            <div class="player-info-tag">
+                <span class="player-color-pill" id="playerColorPill"></span>
+                <span id="playerNameDisplay">Player</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <button id="btnOpenStandingsModal" style="background: var(--bg-input); border: 1.5px solid var(--border-main); color: var(--accent-bright); font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: 800;">🏆 TOP</button>
+                <div class="player-cash-tag" id="playerCashDisplay">$0</div>
+            </div>
+        </header>
+
+        <!-- Main board container -->
+        <div class="board-scroll-area">
+            <div class="felt-board">
+                <!-- Prop bets header and cards container -->
+                <div id="lblPropBetsHeader" style="font-size: 0.68rem; font-weight: 900; color: var(--accent-bright); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;">
+                    PROP BETS (1 CHIP PER CARD)
+                </div>
+                <div id="propBetsContainer" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-bottom: 6px; padding-bottom: 6px; border-bottom: 2px solid var(--accent-bright);"></div>
+
+                <!-- Side container -->
+                <div class="side-bets-container">
+                    <div class="side-bet-card blue" id="side-blue" data-side="blue">
+                        <span class="side-title" id="sideTitleBlue">Blue wins</span>
+                        <span class="side-mult">5x</span>
+                        <span class="side-penalty">-1</span>
+                    </div>
+                    <div class="side-bet-card orange" id="side-orange" data-side="orange">
+                        <span class="side-title" id="sideTitleOrange">Orange wins</span>
+                        <span class="side-mult">3x</span>
+                        <span class="side-penalty">-1</span>
+                    </div>
+                    <div class="side-bet-card red" id="side-red" data-side="red">
+                        <span class="side-title" id="sideTitleRed">Red wins</span>
+                        <span class="side-mult">2x</span>
+                        <span class="side-penalty">-1</span>
+                    </div>
+                    <div class="side-bet-card black" id="side-black" data-side="black">
+                        <span class="side-title" id="sideTitleBlack">7 finishes 5th or worse</span>
+                        <span class="side-mult">4x</span>
+                    </div>
+                </div>
+
+                <!-- Main board slots grid -->
+                <div class="board-header-row">
+                    <div class="col-header-box show-box" id="hdrColShow">SHOW</div>
+                    <div class="col-header-box place-box" id="hdrColPlace">PLACE</div>
+                    <div class="col-header-box win-box" id="hdrColWin">WIN</div>
+                    <div class="col-header-box horse-box" id="hdrColHorse">HORSE</div>
+                </div>
+
+                <div id="boardContainer" style="display: flex; flex-direction: column; gap: 4px;"></div>
+
+                <!-- Full width exotic finish trigger bar -->
+                <div class="bottom-cards-bar" style="grid-template-columns: 1fr; margin-top: 6px;">
+                    <div class="event-card-pill highlight" id="btnOpenExotic" style="padding: 12px; font-size: 1rem; letter-spacing: 1px; font-weight: 900;">
+                        Exotic Finish Bets ★
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="chip-bar" id="chipBar"></footer>
+
+        <!-- Dependencies scripts -->
+        <script src="lang/i18n.js"></script>
+        <script src="assets/js/ui/i18n_ui.js"></script>
+        <script src="assets/js/audio/sfx.js"></script>
+        <script src="assets/js/net/protocol.js"></script>
+        <script src="assets/js/net/p2p.js"></script>
+        <script src="assets/js/ui/client_ui.js"></script>
+    </body>
+</html>

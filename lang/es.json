@@ -1,0 +1,226 @@
+{
+    "common": {
+        "room": "Sala",
+        "player": "Jugador",
+        "defaultPlayerName": "Apostador",
+        "connecting": "Conectando...",
+        "ready": "Listo",
+        "close": "CERRAR",
+        "kick": "EXPULSAR",
+        "copyLink": "📋 Copiar Enlace",
+        "linkCopied": "✓ ¡Copiado!",
+        "invitationLinkPrompt": "Enlace de invitación:",
+        "alertConnError": "Error de conexión. Por favor comprueba el código de sala.",
+        "alertKicked": "Has sido expulsado de la sala.",
+        "alertRoomFull": "La sala está llena. No puedes unirte a esta partida."
+    },
+    "portal": {
+        "title": "TURF RUSH",
+        "subtitle": "Basado en el juego: Ready Set Bet",
+        "hostBtn": "CREAR SALA",
+        "divider": "O ÚNETE COMO JUGADOR",
+        "roomCodeLabel": "Código de Sala:",
+        "roomCodePlaceholder": "X9B2K7",
+        "playerNameLabel": "Nombre del Jugador:",
+        "playerNamePlaceholder": "Apodo",
+        "joinBtn": "UNIRSE A LA SALA"
+    },
+    "host": {
+        "title": "TURF RUSH",
+        "startRace": "Iniciar Carrera",
+        "pause": "Pausa",
+        "rollDice": "Tirar Dados",
+        "reset": "Reiniciar",
+        "betsOpen": "APUESTAS ABIERTAS",
+        "betsClosed": "¡NO VA MÁS! APUESTAS CERRADAS",
+        "lastRoll": "ÚLTIMA TIRADA",
+        "players": "JUGADORES",
+        "managePlayersTitle": "Gestionar Jugadores",
+        "turfChronicle": "CRÓNICA DEL TURF",
+        "viewTrack": "🏁 VER PISTA",
+        "viewResults": "🏆 VER RESULTADOS",
+        "horseArrivals": "🏁 ORDEN DE LLEGADA",
+        "standingsAndPayouts": "💰 CLASIFICACIÓN Y PAGOS",
+        "winner": "GANADOR",
+        "tie": "Empate",
+        "tilesBehind": "-{diff} casillas",
+        "tileLabel": "Casilla: {pos}",
+        "noPlayers": "No hay jugadores conectados",
+        "totalPosition": "Total: <b>{pos}</b>",
+        "speed": {
+            "slow": "Lento",
+            "normal": "Normal",
+            "fast": "Rápido",
+            "frenetic": "Frenético"
+        },
+        "lobby": {
+            "title": "Turf Rush",
+            "subtitle": "Configuración de Sala",
+            "roomCode": "Código de Sala:",
+            "hostingMode": "Modo de Alojamiento:",
+            "modeOnline": "Online (GitHub Pages)",
+            "modeLocal": "Local (Wi-Fi / LAN)",
+            "hostIp": "Host IP / Dominio:",
+            "maxPlayers": "Jugadores Máximos:",
+            "playersOption": "{count} Jugadores",
+            "playersOptionOfficial": "{count} Jugadores",
+            "initialMoney": "Dinero Inicial:",
+            "allowDebt": "Permitir Deuda:",
+            "debtNo": "No",
+            "debtYes": "Sí",
+            "gameMode": "Interfaz:",
+            "modeWestern": "Clásico",
+            "modeUma": "Uma Musume",
+            "language": "Idioma:",
+            "scanQr": "ESCANEAR CON MÓVIL",
+            "connectedPlayers": "JUGADORES CONECTADOS:",
+            "openRoomBtn": "EMPEZAR PARTIDA"
+        },
+        "umaSetup": {
+            "title": "CONFIGURACIÓN DE CARRILES UMA",
+            "subtitle": "Asigna una corredora por carril o tira los dados para una elección al azar",
+            "rollAll": "🎲 TIRAR TODOS",
+            "rollAllTitle": "Elegir todos los carriles al azar",
+            "rollLaneTitle": "Elegir Uma al azar",
+            "backLobby": "VOLVER A LA SALA",
+            "confirmStart": "CONFIRMAR Y EMPEZAR"
+        },
+        "results": {
+            "roundCompleted": "CARRERA {round} DE 5 COMPLETADA",
+            "tournamentFinished": "CLASIFICACIÓN FINAL DEL CAMPEONATO",
+            "nextRaceBtn": "SIGUIENTE CARRERA (RONDA {nextRound})",
+            "newTournamentBtn": "NUEVO TORNEO",
+            "podiumGold": "1º PUESTO 🥇",
+            "podiumSilver": "2º PUESTO 🥈",
+            "podiumBronze": "3º PUESTO 🥉"
+        },
+        "log": {
+            "streakBadge": "¡RACHA! #{label} +{steps}",
+            "connected": "+ Conectado: {name}",
+            "disconnected": "- Desconectado: {name}",
+            "betPlaced": "{name} apuesta ${amount} a #{label} ({category})",
+            "sideBetPlaced": "{name} apuesta ${amount} a: {side}",
+            "propBetPlaced": "{name} apuesta ${amount} a Especial: {title}",
+            "exoticBetPlaced": "{name} apuesta ${amount} a Exótica: {title}",
+            "racePrepared": "--- CARRERA {round} PREPARADA ---",
+            "payoutError": "ERROR calculando pagos."
+        },
+        "modifiers": {
+            "defaultTitle": "Normal",
+            "defaultDesc": "Sin modificadores especiales.",
+            "roundTitle": "Ronda {round}"
+        }
+    },
+    "client": {
+        "modalTitle": "TURF RUSH",
+        "modalSubtitle": "Conectar a la Pantalla Central",
+        "codePlaceholder": "6 DÍGITOS (ej. X9B2K7)",
+        "namePlaceholder": "Tu Apodo",
+        "connectBtn": "CONECTAR A LA SALA",
+        "waitingRaceTitle": "ESPERANDO CARRERA...",
+        "waitingRaceSubtitle": "Mira a la Pantalla del Host",
+        "waitingStartTitle": "ESPERANDO INICIO",
+        "betsOpenFirstMove": "Las apuestas se abrirán con el primer avance",
+        "betsClosedTitle": "¡NO VA MÁS!",
+        "betsClosedSubtitle": "Apuestas cerradas. ¡Atentos a la meta!",
+        "raceFinishedTitle": "¡CARRERA TERMINADA!",
+        "raceFinishedSubtitle": "Calculando ganancias...",
+        "checkHost": "Comprueba la pantalla del Host.",
+        "noBetsPlaced": "Sin apuestas realizadas esta ronda",
+        "noPlayerData": "Sin datos de jugadores",
+        "youTag": "(Tú)",
+        "breakdownPending": "El desglose de apuestas se actualiza al terminar la ronda.",
+        "profit": "+ ${amount} BENEFICIO",
+        "loss": "- ${amount} PÉRDIDA",
+        "balance": "Balance actual: ${amount}",
+        "propBetsHeader": "APUESTAS ESPECIALES (1 FICHA POR CARTA)",
+        "topBtn": "🏆 TOP",
+        "standingsTitle": "🏆 CLASIFICACIÓN",
+        "payoutModal": {
+            "title": "💰 RESUMEN Y PAGOS",
+            "breakdown": "Desglose de tus apuestas:",
+            "leaderboard": "Tabla de dinero de jugadores:",
+            "closeBtn": "ENTENDIDO"
+        },
+        "headers": {
+            "show": "3º PUESTO",
+            "place": "2º PUESTO",
+            "win": "GANADOR",
+            "horse": "CAB."
+        },
+        "sideBets": {
+            "blueWins": "Azul gana",
+            "orangeWins": "Naranja gana",
+            "redWins": "Rojo gana",
+            "sevenFails": "#7 queda 5º o peor"
+        },
+        "bottomCards": {
+            "exotic": "Llegada insólita ★",
+            "race1": "R1",
+            "race2": "R2",
+            "race3": "R3",
+            "race4": "R4",
+            "race5": "R5",
+            "vip": "VIP"
+        },
+        "cardsModal": {
+            "exoticTitle": "Llegadas Insólitas",
+            "exoticDesc": "Toca una casilla con una ficha seleccionada (Máximo 1 ficha por jugador en cada carta)",
+            "noExotic": "No hay cartas exóticas activas.",
+            "vipTitle": "Cartas VIP",
+            "vipDesc": "Esta función estará disponible en próximas actualizaciones."
+        }
+    },
+    "payouts": {
+        "winBet": "Apuesta Ganador: #{label}",
+        "placeBet": "Apuesta 2º Puesto: #{label}",
+        "showBet": "Apuesta 3º Puesto: #{label}",
+        "sideBet": "Apuesta Lateral: {side}",
+        "propBet": "Especial: {title}",
+        "exoticBet": "Exótica: {title}",
+        "penalty": "Penalización"
+    },
+    "narrative": {
+        "takeLead": [
+            "¡#{label} adelanta al #{prevLeader} y se pone primero!",
+            "¡Cambio de líder! #{label} supera al #{prevLeader} y toma la delantera.",
+            "¡#{label} pasa al #{prevLeader} y lidera la carrera!"
+        ],
+        "overtake": [
+            "¡#{label} adelanta al #{overtaken}!",
+            "¡#{label} supera al #{overtaken} y gana una posición!",
+            "¡#{label} deja atrás al #{overtaken}!"
+        ],
+        "pullAway": [
+            "¡#{label} se escapa solo y saca {gap} casillas al #{chaser}!",
+            "¡#{label} amplía su ventaja a {gap} casillas sobre #{chaser}!"
+        ],
+        "neckAndNeck": [
+            "¡#{label} y #{rival} empatan en la casilla {pos}!",
+            "¡#{label} alcanza al #{rival} y van juntos en la casilla {pos}!"
+        ],
+        "lastComeback": [
+            "¡#{label} sale de la última posición y empieza a recortar!"
+        ],
+        "streak": [
+            "¡Racha! #{label} repite y avanza +{steps} casillas extra.",
+            "¡Segunda tirada para #{label}! Suma un bono de +{steps} casillas."
+        ],
+        "standard": [
+            "#{label} avanza {steps} casilla(s).",
+            "Tirada para #{label}: avanza {steps} posición(es)."
+        ],
+        "redLine": [
+            "¡Atención! #{label} cruza la línea roja ({count}/3).",
+            "¡#{label} supera la línea roja ({count}/3)!"
+        ],
+        "betsClosed": [
+            "¡Tercer caballo en cruzar la línea roja! Apuestas cerradas.",
+            "¡Se acabó el tiempo! No se admiten más apuestas."
+        ],
+        "victory": [
+            "¡#{label} cruza la meta y gana la carrera!",
+            "¡Victoria para #{label}! Ha llegado en primer lugar."
+        ]
+    }
+}
